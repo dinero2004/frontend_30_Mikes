@@ -7,10 +7,10 @@ export const Footer = () => {
         <FooterLinks />
 
         <div className="flex justify-center gap-6">
-          <a href="https://instagram.com" aria-label="Instagram">
+          <a href="https://steam.com" aria-label="Steam">
             <img
-              src="/social-icons/InstagramIcon.svg"
-              alt="Instagram"
+              src="/social-icons/SteamIcon.svg"
+              alt="Steam"
               className="w-6 h-6 opacity-80 hover:opacity-100 transition-opacity"
             />
           </a>

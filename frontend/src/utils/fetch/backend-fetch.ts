@@ -45,10 +45,12 @@ export async function fetchApi<T>(
   options: RequestInit = {}
 ): Promise<ApiResponse<T>> {
   // Define the base URL for all API calls
-  const baseUrl = process.env.BACKEND_URL;
+ const baseUrl = process.env.BACKEND_URL;
 
-  // Construct the full URL by combining base URL with the endpoint
-  const url = `${baseUrl}/${endpoint}`;
+const url = `${baseUrl}${endpoint.startsWith("/") ? endpoint : `/${endpoint}`}`;
+
+console.log("FETCH URL:", url);
+
 
   try {
     // Attempt to make the network request

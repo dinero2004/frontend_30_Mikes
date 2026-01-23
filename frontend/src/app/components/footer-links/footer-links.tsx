@@ -4,7 +4,7 @@ const links = [
   { label: "SOCIALS", href: "#" },
   { label: "IMPRINT", href: "/imprint" },
   { label: "LOGIN", href: "/signup-login" },
-  { label: "LEGAL INFORMATION", href: "/legal" },
+  { label: "LEGAL INFORMATION", href: "/legal_information" },
 ]
 
 export const FooterLinks = () => {

@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Capture_It";
+  src: url("/fonts/Capture_It.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #434343;
@@ -22,5 +29,5 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Oswald', Times, serif, Helvetica, sans-serif;
+  font-family: 'Capture_It', Times, serif, Helvetica, sans-serif;
 }

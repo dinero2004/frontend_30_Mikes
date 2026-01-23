@@ -42,7 +42,10 @@
         "../frontend/src/actions/*"
       ],
       "@/types/*": [
-        "../frontend/src/types"
+        "../frontend/src/types/*"
+      ],
+      "@/responses/*": [
+        "../frontend/src/types/responses/*"
       ],
       "@/utils/*": [
         "../frontend/src/utils/*"
