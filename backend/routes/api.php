@@ -1,10 +1,12 @@
 <?php
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\NewsController;
-
+use App\Http\Controllers\Api\AuthController;
 
 use Illuminate\Support\Facades\Route;
 
+Route::post('/user', [UserController::class, 'create']);
+Route::post('/auth/login', [AuthController::class, 'login']);
 Route::get('/users', [UserController::class, 'index']);
 Route::get('/news', [NewsController::class, 'index']);
 

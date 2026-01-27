@@ -1,6 +1,4 @@
 "use client"
-
-import { NavLink } from "@/components/nav-link/nav-link"
 import { Button } from "@/components/ui/button/button"
 import { Grid, GridItem } from "@/components/ui/grid/grid"
 import { Input } from "@/components/ui/input/input"
@@ -14,7 +12,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 
 // Login schema
 const loginSchema = z.object({
-  username: z.string().min(1, "Username is required"),
+  username: z.string().min(1, "username is required"),
   password: z.string().min(1, "Password is required"),
 })
 
@@ -34,15 +32,22 @@ export default function LoginPage() {
         username: data.username,
         password: data.password,
         redirect: false,
+        callbackUrl: "/", // redirect target
       })
+
+      // 🧪 DEBUG (remove later)
+      console.log("SIGN IN RESULT:", result)
 
       if (result?.error) {
         toast.error("Invalid credentials")
-      } else {
-        toast.success("Welcome back")
-        router.push("/dashboard")
+        return
       }
-    } catch {
+
+      toast.success("Welcome back")
+
+      router.replace(result?.url ?? "/")
+    } catch (error) {
+      console.error("LOGIN ERROR:", error)
       toast.error("Login failed")
     }
   }
@@ -76,11 +81,6 @@ export default function LoginPage() {
             label="Username"
             placeholder="Enter your username"
             error={loginForm.formState.errors.username?.message}
-            className="
-              border border-white/20
-              focus:border-[#DFAF44]
-              focus:ring-1 focus:ring-[#DFAF44]
-            "
           />
 
           {/* Password */}
@@ -91,20 +91,7 @@ export default function LoginPage() {
             placeholder="••••••••"
             type="password"
             error={loginForm.formState.errors.password?.message}
-            className="
-              border border-white/20
-              focus:border-[#DFAF44]
-              focus:ring-1 focus:ring-[#DFAF44]
-            "
           />
-
-          {/* Forgot */}
-          <NavLink
-            href="/password-reset"
-            className="self-end text-sm text-[#DFAF44] hover:underline"
-          >
-            Forgot password?
-          </NavLink>
 
           {/* Button */}
           <Button

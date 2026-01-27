@@ -49,6 +49,9 @@
       ],
       "@/utils/*": [
         "../frontend/src/utils/*"
+      ],
+       "@/auth/*": [
+        "../frontend/src/auth"
       ]
     }
   },

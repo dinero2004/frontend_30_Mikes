@@ -11,52 +11,54 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
   providers: [
     Credentials({
-      // provider configuration for id/name
-      id: "login",
-      name: "login",
+  id: "login",
+  name: "login",
 
-      // define what credentials are expected from the client
-      credentials: {
-        username: {},
-        password: {},
+  credentials: {
+    username: { label: "Username", type: "text" },
+    password: { label: "Password", type: "password" },
+  },
+
+  async authorize(credentials) {
+    console.log("AUTHORIZE CALLED WITH:", credentials)
+
+    if (!credentials?.username || !credentials?.password) {
+      console.log("❌ Missing credentials")
+      return null
+    }
+
+    const response = await fetch(`${process.env.BACKEND_URL}/auth/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
+      body: JSON.stringify({
+        username: credentials.username,
+        password: credentials.password,
+      }),
+    })
 
-      // async function that is being called when we are calling the signIn() function from a component
-      authorize: async (credentials) => {
-        // validate if the input of the credentials exists
-        if (!credentials.username || !credentials.password) {
-          throw new Error("Missing credential information");
-        }
+    console.log("BACKEND STATUS:", response.status)
 
-        // Make API call to the backend authentication endpoint
-        const response = await fetch(`${process.env.BACKEND_URL}/auth/login`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            username: credentials.username,
-            password: credentials.password,
-          }),
-        });
+    const data = await response.json()
+    console.log("RAW BACKEND DATA:", data)
 
-        // we save the response to another variable
-        const data = await response.json();
+    if (!response.ok) {
+      console.log("❌ Backend rejected login")
+      return null
+    }
 
-        // handle failed authentication
-        if (!response.ok) {
-          throw new Error(data.message || "Login failed");
-        }
+    console.log("✅ LOGIN SUCCESS — returning user")
 
-        // the returned data object from the backend shoul be stored in a JWT/session in auth.js. This return will ensure, that if the response is correct, that it will store the information in the cookies of the web-browser. This MUST match your User interface definition
-        return {
-          id: data.user.id.toString(),
-          username: data.user.username,
-          email: data.user.email,
-          accessToken: data.token,
-        };
-      },
-    }),
+    return {
+      id: String(data.user.id),
+      username: data.user.username,
+      email: data.user.email,
+      accessToken: data.token,
+    }
+  },
+})
+
   ],
   // callbacks are the callbacks that are needed to give additional information to the auth.js session. callbacks function like this: response from backend -> jwt -> session
   // this is needed, so that we can append the information we get from the backend to the auth.js session
@@ -83,7 +85,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       }
       session.accessToken = token.accessToken;
       session.username = token.username;
-
+      
       return session;
     },
   },

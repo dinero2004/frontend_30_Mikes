@@ -6,7 +6,7 @@ export interface Image {
   url: string;
   name: string;
   user_id: number;
-  article_id: number | null;
+  news_id: number | null;
   created_at: string;
   updated_at: string;
 }
@@ -27,11 +27,12 @@ export interface News {
 }
 
 /*
- * Interface for public user data
+ * Interface for admin user data
  */
-export interface PublicUser {
+export interface AdminUser {
   id: number;
   username: string;
+  email: string;
   bio: string;
   avatar_id: number;
 }

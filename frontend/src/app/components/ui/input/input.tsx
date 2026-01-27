@@ -31,34 +31,27 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         )}
         <div className="relative">
           <input
-            id={id}
-            ref={ref}
-            name={name}
-            type={inputType}
-            data-slot="input"
-            aria-invalid={error ? "true" : "false"}
-            className={cn([
-              // Basic layout
-              "relative block w-full appearance-none rounded-lg px-xs py-2xs",
-              // Typography
-              "text-base/6 text-zinc-950 placeholder:text-zinc-500 typo-body-small",
-              // Border
-              !error && "border border-zinc-950/10 hover:border-zinc-950/20",
-              // Background color
-              "bg-transparent",
-              // Hide default focus styles
-              "focus:outline-2 focus:outline-cyan-800/50 focus:border-transparent",
-              // Disabled state
-              "data-disabled:border-zinc-950/20",
-              // add padding for password toggle
-              isPassword && "pr-xl",
-              // add error state classNames
-              error &&
-                "border border-red-500 focus:outline-2 focus:outline-red-700/50 focus:border-transparent text-red-500",
-              className,
-            ])}
-            {...props}
-          />
+  id={id}
+  ref={ref}
+  name={name}
+  type={inputType}
+  data-slot="input"
+  aria-invalid={error ? "true" : "false"}
+  className={cn([
+    "relative block w-full appearance-none rounded-lg px-xs py-2xs",
+    "text-base/6 text-white placeholder:text-zinc-500 typo-body-small font-sans",
+    !error && "border border-zinc-950/10 hover:border-zinc-950/20",
+    "bg-transparent",
+    "focus:outline-2 focus:outline-cyan-800/50 focus:border-transparent",
+    "data-disabled:border-zinc-950/20",
+    isPassword && "pr-xl",
+    error &&
+      "border border-red-500 focus:outline-2 focus:outline-red-700/50 focus:border-transparent text-red-500",
+    className,
+  ])}
+  {...props}
+/>
+
           {isPassword && (
             <button
               type="button"

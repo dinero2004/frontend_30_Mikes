@@ -8,33 +8,39 @@ use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
-    // GET /news
-    public function index()
-    {
-        return News::with('user')->get();
-    }
+    // GET /api/news
+   public function index()
+{
+    return News::latest()->paginate(10);
+}
 
-    // GET /news/{id}
+
+    // GET /api/news/{id}
     public function show($id)
     {
-        return News::with('user')->findOrFail($id);
+        return response()->json(
+            News::findOrFail($id)
+        );
     }
 
-    // POST /news
+    // POST /api/news
     public function store(Request $request)
     {
         $data = $request->validate([
-            'user_id'     => 'required|exists:users,id',
+            'user_id'     => 'nullable|exists:users,id',
             'title'       => 'required|string|max:255',
             'subtitle'    => 'nullable|string|max:255',
             'description' => 'nullable|string',
             'image_url'   => 'nullable|string|max:255'
         ]);
 
-        return News::create($data);
+        return response()->json(
+            News::create($data),
+            201
+        );
     }
 
-    // PUT/PATCH /news/{id}
+    // PUT / PATCH /api/news/{id}
     public function update(Request $request, $id)
     {
         $news = News::findOrFail($id);
@@ -44,15 +50,15 @@ class NewsController extends Controller
             'subtitle'    => 'sometimes|string|max:255',
             'description' => 'sometimes|string',
             'image_url'   => 'sometimes|string|max:255',
-            'user_id'     => 'sometimes|exists:users,id'
+            'user_id'     => 'nullable|exists:users,id'
         ]);
 
         $news->update($data);
 
-        return $news;
+        return response()->json($news);
     }
 
-    // DELETE /news/{id}
+    // DELETE /api/news/{id}
     public function destroy($id)
     {
         News::findOrFail($id)->delete();

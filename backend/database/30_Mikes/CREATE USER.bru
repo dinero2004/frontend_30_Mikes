@@ -1,0 +1,30 @@
+meta {
+  name: CREATE USER
+  type: http
+  seq: 3
+}
+
+put {
+  url: http://127.0.0.1:8000/api/users/
+  body: json
+  auth: basic
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+  ~: 
+}
+
+body:json {
+  {
+    "username": "Lazar",
+    "bio": "Indie developer working on 30 Mikes Till Extraction.",
+    "avatar_id": 2
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
