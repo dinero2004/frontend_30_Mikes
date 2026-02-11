@@ -1,3 +1,4 @@
+import { DropdownNav } from "../dropdown-nav/dropdown-nav"
 import { NavLink } from "../nav-link/nav-link"
 
 export const Navigation = () => {
@@ -6,7 +7,8 @@ export const Navigation = () => {
       <NavLink href="/">Home</NavLink>
       <NavLink href="/about">About</NavLink>
       <NavLink href="/news">News</NavLink>
-      {/* <NavLink href="/model">Models</NavLink> */}
+      <NavLink href="/model">Models</NavLink>
+      <DropdownNav />
     </nav>
   )
 }

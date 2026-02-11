@@ -9,7 +9,7 @@ import { fetchApi } from "@/utils/fetch/backend-fetch";
 export default async function NewsPage() {
 const response = await fetchApi<PaginatedNewsResponse>("/news");
 const newsList = response.data?.data ?? [];
-console.log("API DATA:", response.data);
+console.log("NEWS COUNT:", newsList.length);
 
   return (
     <section className="max-w-5xl mx-auto p-8 space-y-8">
@@ -19,15 +19,14 @@ console.log("API DATA:", response.data);
           Latest updates, announcements, and development progress.
         </p>
       </header>
-      
 
       {newsList.length === 0 ? (
         <p className="text-muted-foreground">No news available.</p>
       ) : (
         <Grid className="py-2xl">
           {newsList.map((news) => (
-            <Card key={news.id} slug={`news/${news.id}`}>
-              <CardHeader
+            <Card key={news.id} slug={`/news/${news.slug}`}>
+d              <CardHeader
                 title={news.title}
                 subtitle={news.subtitle}
                 description={news.description}

@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* =========================
+   Custom Fonts
+========================= */
 @font-face {
   font-family: "Capture_It";
   src: url("/fonts/Capture_It.ttf") format("truetype");
@@ -7,16 +10,18 @@
   font-style: normal;
 }
 
+/* =========================
+   CSS Variables
+========================= */
 :root {
+  --font-capture: "Capture_It", serif;
+  --font-roboto: "Roboto", system-ui, sans-serif;
+  --font-ui: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+
   --background: #ffffff;
   --foreground: #434343;
-}
-
-:root {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -26,14 +31,38 @@
   }
 }
 
+/* =========================
+   Base Styles
+========================= */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family:'Capture_It', Times, serif, Helvetica, sans-serif;
+  font-family: var(--font-roboto);
 }
 
 form {
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  font-family: var(--font-capture);
+}
+
+header, footer, section {
+  font-family: var(--font-capture);
+}
+
+/* =========================
+   Font Utility Classes
+========================= */
+.font-capture {
+  font-family: var(--font-capture);
+}
+
+.font-roboto {
+  font-family: var(--font-roboto);
+}
+
+.font-ui {
+  font-family: var(--font-ui);
+}
+
+.card-body {
+  font-family: var(--font-roboto);
 }

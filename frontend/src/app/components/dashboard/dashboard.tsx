@@ -14,21 +14,26 @@ export const Dashboard = () => {
     return (
       <>
         <MenuSeperator />
-        <DropdownMenuItem className="group relative p-0 overflow-hidden hover:outline-none ">
-          <button
-            className="block relative z-10 p-s w-full after:absolute after:inset-0 after:-z-10 after:bg-gray-100 after:opacity-0 after:transition-opacity after:duration-200 group-hover:after:opacity-100 after:rounded-md cursor-pointer"
-            type="button"
-            onClick={() => {
-              // redirect false to have a custom logout logic
-              router.push("/dashboard");
-            }}
-          >
-            <Text variant="body-small" className="font-semibold flex">
-              Dashboard
-            </Text>
-            <Text variant="body-micro">Your wandrstays</Text>
-          </button>
-        </DropdownMenuItem>
+       <DropdownMenuItem className="group relative p-0 overflow-hidden hover:outline-none">
+  <button
+    type="button"
+    onClick={() => router.push("/dashboard")}
+    className="block relative z-10 w-full p-6
+               bg-gray-900 text-white
+               transition-colors duration-200
+               hover:bg-gray-800
+               text-left"
+  >
+    <Text variant="body-small" className="text-[#DFAF44]">
+      Dashboard
+    </Text>
+
+    <Text variant="body-micro" className="text-gray-400">
+      Your Posts
+    </Text>
+  </button>
+</DropdownMenuItem>
+
       </>
     );
   }

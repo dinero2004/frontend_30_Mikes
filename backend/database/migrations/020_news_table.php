@@ -10,7 +10,9 @@ return new class extends Migration {
             Schema::create('news', function (Blueprint $table) {
                   $table->id();
                   $table->foreignId('user_id')->constrained()->onDelete('cascade');
+                  $table->foreignId('image_id')->nullable()->constrained('images')->nullOnDelete();
                   $table->string('title');
+                  $table->string('slug')->unique(); // Add the slug column here
                   $table->string('subtitle')->nullable();
                   $table->text('description')->nullable();
                   $table->string('image_url')->nullable();

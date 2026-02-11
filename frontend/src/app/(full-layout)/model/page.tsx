@@ -11,14 +11,6 @@ export default function Page() {
           <div className="h-[400px] rounded-xl overflow-hidden border border-white/10">
             <ObjViewer />
           </div>
-
-          <div className="h-[400px] rounded-xl overflow-hidden border border-white/10">
-            <ObjViewer />
-          </div>
-
-          <div className="h-[400px] rounded-xl overflow-hidden border border-white/10">
-            <ObjViewer />
-          </div>
         </div>
 
         <p className="mt-8 text-gray-400 max-w-xl">

@@ -3,15 +3,11 @@ import { Navigation } from "../navigation/navigation";
 
 export const Header = () => {
   return (
-    <header className="flex items-center justify-end px-8 py-6 min-h-80px
+     <header className="flex items-center justify-end px-8 py-6 min-h-80px
                    bg-linear-to-r from-black to-[#434343]
                    border-b border-gray-700">
-  <Navigation />
-   {/* Mobile menu */}
-      <div className="md:hidden">
-        <DropdownNav />
-      </div>
-</header>
+      <Navigation />
+    </header>
 
   );
 };

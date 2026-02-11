@@ -1,6 +1,5 @@
 import { Text } from "@/components/ui/text/text";
 import { cn } from "@/lib/utils";
-import { ReactNode } from "react";
 
 interface CardHeaderProps {
   title: string;
@@ -9,25 +8,49 @@ interface CardHeaderProps {
   className?: string;
 }
 
-export const CardHeader = ({ title, subtitle, description, className }: CardHeaderProps) => {
+export const CardHeader = ({
+  title,
+  subtitle,
+  description,
+  className,
+}: CardHeaderProps) => {
   return (
-    <div className={cn("pt-m px-s pb-s flex flex-col gap-xs", className)}>
-      <div className="flex flex-col gap-xs">
+    <div
+      className={cn(
+        "px-s pt-s pb-m flex flex-col gap-s bg-neutral-900/60 backdrop-blur-sm",
+        className
+      )}
+    >
+      {/* Title + subtitle */}
+      <div className="flex flex-col gap-2">
         <Text
           as="h4"
           variant="headline-4"
-          className="line-clamp-2 h-[calc(2*var(--text-headline-4-line-height))]"
+          className="line-clamp-2 text-gray-100"
         >
           {title}
         </Text>
+
         <Text
           variant="body-small"
-          className="line-clamp-3 h-[calc(3*var(--text-body-small-line-height))]"
+          className="line-clamp-2 text-gray-400"
         >
           {subtitle}
         </Text>
       </div>
-      {description && description}
+
+      {/* Divider */}
+      <div className="h-px w-full bg-white/10" />
+
+      {/* Description */}
+      {description && (
+        <Text
+          variant="body-small"
+          className="text-gray-300 leading-relaxed"
+        >
+          {description}
+        </Text>
+      )}
     </div>
   );
 };

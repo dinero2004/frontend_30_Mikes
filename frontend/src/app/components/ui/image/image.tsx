@@ -4,10 +4,11 @@ interface ImageContainerProps {
   src: string;
   alt: string;
   className?: string;
+  objectFit?: "cover" | "contain";
 }
 
-export const ImageContainer = ({ src, alt }: ImageContainerProps) => {
-  return <Image src={src} alt={alt} fill objectFit="cover" />;
+export const ImageContainer = ({ src, alt, className, objectFit }: ImageContainerProps) => {
+  return <Image src={src} alt={alt} fill className={className} style={{ objectFit }} />;
 };
 
 // import Image from "next/image";

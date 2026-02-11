@@ -7,6 +7,7 @@ import { Text, TextVariant } from "../text/text";
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary" | "ghost" | "destructive";
   textVariant?: TextVariant;
+  href?: string;
   label: string;
   labelClassName?: string;
   leftSection?: ReactNode;

@@ -6,9 +6,9 @@ import {
 } from "@radix-ui/react-dropdown-menu";
 import { MenuButton } from "../menu-button/menu-button";
 import { MenuItem } from "../menu-item/menu-item";
-import { MenuSeperator } from "../menu-separator/menu-separator";
-// import { Logout } from "../logout/logout";
-// import { Dashboard } from "../dashboard/dashboard";
+import { MenuSeperator } from "@/components/menu-separator/menu-separator";
+import { Logout } from "../logout/logout";
+import { Dashboard } from "../dashboard/dashboard";
 
 export const DropdownNav = () => {
   return (
@@ -22,12 +22,13 @@ export const DropdownNav = () => {
           align="end"
           sideOffset={16}
         >
-          <MenuItem href="/" title="Home" description="30 Mikes" />
-          <MenuItem href="/about" title="About" description="our team" />
-          <MenuItem href="/news" title="News" description="current news" />
-          {/* <Dashboard /> */}
+          <MenuItem href="/" title="Home" description="Game Overview" />
+          <MenuItem href="/about" title="About" description="Find out more" />
+          <MenuItem href="/news" title="News" description="Latest updates" />
+          <MenuItem href="/model" title="Models" description="3D Model Viewer" />
+          <Dashboard />
           <MenuSeperator />
-          {/* <Logout /> */}
+          <Logout />
         </DropdownMenuContent>
       </DropdownMenuPortal>
     </DropdownMenu>

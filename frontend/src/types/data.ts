@@ -20,6 +20,7 @@ export interface News {
   title: string;
   subtitle: string;
   description: string;
+  slug: string;
   image_url: string;
   user_id: number;
   created_at: string;

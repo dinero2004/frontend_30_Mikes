@@ -15,6 +15,7 @@ class NewsFactory extends Factory
             'user_id'     => 1,
             'title'       => $this->faker->sentence,
             'subtitle'    => $this->faker->sentence,
+            'slug'        => date('Y-m-d') . '-' . \Illuminate\Support\Str::slug($this->faker->sentence),
             'description' => $this->faker->paragraph,
             'image_url'   => $this->faker->imageUrl(),
         ];

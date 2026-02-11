@@ -1,3 +1,4 @@
+import Carousel from "@/components/carousel/carousel";
 import { ImageContainer } from "@/components/ui/image/image";
 import { Button } from "@/ui/button/button";
 
@@ -104,64 +105,57 @@ export default function Home() {
 
       {/* SECTION ENEMIES */}
 
-      <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
-        {/* BACKGROUND */}
-        <ImageContainer
-          src="/images/office.png"
-          alt="Abandoned office battlefield"
-          className="absolute inset-0 -z-20 object-cover"
-        />
+<section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
+  {/* BACKGROUND */}
+  <ImageContainer
+    src="/images/office.png"
+    alt="Abandoned office battlefield"
+    className="absolute inset-0 object-cover -z-20"
+  />
 
-        {/* DARK OVERLAY */}
-        <div className="absolute inset-0 bg-gray-700 -z-10" />
+  {/* OVERLAY */}
+  <div className="absolute inset-0 bg-black/70 -z-10" />
 
-        {/* ENEMIES */}
-        <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl w-full px-8">
-          {/* Riflemen */}
-          <div className="flex flex-col items-center">
-            <div className="relative w-64 h-96 bg-black/30 border border-white/10 flex items-center justify-center">
-              <ImageContainer
-                src="/images/rifleman.png"
-                alt="Rifleman enemy"
-                className="w-44 h-auto"
-              />
-            </div>
-            <div className="w-64 bg-black/60 py-3 text-center">
-              <p className="text-white font-medium tracking-wide">Riflemen</p>
-            </div>
-          </div>
-
-          {/* Machine Gunners */}
-          <div className="flex flex-col items-center">
-            <div className="relative w-64 h-96 bg-black/30 border border-white/10 flex items-center justify-center">
-              <ImageContainer
-                src="/images/machine-gunner.png"
-                alt="Machine Gunner enemy"
-                className="w-44 h-auto"
-              />
-            </div>
-            <div className="w-64 bg-black/60 py-3 text-center">
-              <p className="text-white font-medium tracking-wide">
-                Machine Gunners
-              </p>
-            </div>
-          </div>
-
-          {/* Commandos */}
-          <div className="flex flex-col items-center">
-            <div className="relative w-64 h-96 bg-black/30 border border-white/10 flex items-center justify-center">
-              <ImageContainer
-                src="/images/heavy-machine-gunner.png"
-                alt="Commando enemy"
-                className="w-44 h-auto"
-              />
-            </div>
-            <div className="w-64 bg-black/60 py-3 text-center">
-              <p className="text-white font-medium tracking-wide">Commandos</p>
-            </div>
-          </div>
+  {/* ENEMIES */}
+  <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl w-full px-8">
+    {[
+      {
+        name: "Riflemen",
+        src: "/images/rifleman.png",
+        alt: "Rifleman enemy",
+      },
+      {
+        name: "Machine Gunners",
+        src: "/images/machine-gunner.png",
+        alt: "Machine Gunner enemy",
+      },
+      {
+        name: "Commandos",
+        src: "/images/heavy-machine-gunner.png",
+        alt: "Commando enemy",
+      },
+    ].map((enemy) => (
+      <div key={enemy.name} className="flex flex-col items-center gap-4">
+        {/* IMAGE CARD */}
+        <div className="relative w-64 h-96 bg-black/40 border border-white/10 rounded-lg flex items-center justify-center p-6">
+          <ImageContainer
+            src={enemy.src}
+            alt={enemy.alt}
+            className="w-full h-full object-contain scale-90"
+          />
         </div>
-      </section>
+
+        {/* LABEL */}
+        <div className="w-64 bg-black/70 py-3 rounded-md text-center">
+          <p className="text-white text-sm font-semibold tracking-widest uppercase">
+            {enemy.name}
+          </p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
 
  {/* SECTION DIVIDER / STORY */}
       <section className="relative w-full py-32 bg-black flex items-center justify-center">
@@ -193,59 +187,31 @@ export default function Home() {
   <ImageContainer
     src="/images/background_weapons.png"
     alt="30 Mike's Weapons Background"
-    className="absolute inset-0 -z-20 object-cover"
+    className="absolute inset-0 -z-20"
   />
-
-  {/* DARK OVERLAY */}
-  <div className="absolute inset-0 bg-gray-700/80 -z-10" />
-
-  {/* WEAPONS */}
-  <div className="relative z-10 grid grid-cols-1 xl:grid-rows-3 gap-10 w-full px-2">
-
-    {/* Pistol */}
-    <div className="flex flex-col items-center">
-      <div className="relative w-full max-w-2xl aspect-square bg-black/30 border border-white/10 flex items-center justify-center">
-        <ImageContainer
-          src="/images/30_Mikes_Pistol.png"
-          alt="compact pistol"
-          className="w-full h-full object-contain scale-90"
-        />
-      </div>
-      <div className="w-full max-w-2xl  bg-black/60 py-3 text-center mt-3">
-        <p className="text-white font-medium tracking-wide">Pistol</p>
-      </div>
-    </div>
-
-    {/* Automatic Rifle */}
-    <div className="flex flex-col items-center">
-      <div className="relative w-full max-w-2xl  aspect-square bg-black/30 border border-white/10 flex items-center justify-center">
-        <ImageContainer
-          src="/images/30_Mikes_auto_rifle.png"
-          alt="automatic rifle"
-          className="w-full h-full object-contain scale-90"
-        />
-      </div>
-      <div className="w-full max-w-2xl  bg-black/60 py-3 text-center mt-3">
-        <p className="text-white font-medium tracking-wide">Automatic Rifle</p>
-      </div>
-    </div>
-
-    {/* Heavy Shotgun */}
-    <div className="flex flex-col items-center">
-      <div className="relative w-full max-w-2xl  aspect-square bg-black/30 border border-white/10 flex items-center justify-center">
-        <ImageContainer
-          src="/images/30_Mikes_heavy_rifle.png"
-          alt="heavy shotgun"
-          className="w-full h-full object-contain scale-90"
-        />
-      </div>
-      <div className="w-full max-w-2xl bg-black/60 py-3 text-center mt-3">
-        <p className="text-white font-medium tracking-wide">Heavy Shotgun</p>
-      </div>
-    </div>
-
-  </div>
+  <div className="my-24 px-12">
+  <Carousel
+  slides={[
+    {
+      image: "/images/30_Mikes_Pistol.png",
+      title: "Pistol",
+      description: "Reliable sidearm for close-quarters combat.",
+    },
+    {
+      image: "/images/30_Mikes_auto_rifle.png",
+      title: "Auto Rifle",
+      description: "Fully automatic rifle with high fire rate.",
+    },
+    {
+      image: "/images/30_Mikes_heavy_rifle.png",
+      title: "Heavy Rifle",
+      description: "High-caliber weapon built for armored targets.",
+    },
+  ]}
+/>
+</div>
 </section>
+
 
 
 

@@ -13,12 +13,12 @@ export const MenuItem = ({ href, title, description }: MenuItemProps) => {
     <DropdownMenuItem className="group relative p-0 overflow-hidden hover:outline-none">
   <Link
     href={href}
-    className="block relative z-10 w-full p-6 rounded-xl
+    className="block relative z-10 w-full p-6
                bg-gray-900 text-white
                transition-colors duration-200
                hover:bg-gray-800"
   >
-    <Text variant="body-small" className="font-semibold text-[#DFAF44]">
+    <Text variant="body-small" className="text-[#DFAF44]">
       {title}
     </Text>
 

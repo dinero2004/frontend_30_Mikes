@@ -38,7 +38,7 @@
       "@/lib/*": [
         "../frontend/src/lib/*"
       ],
-      "@/action/*": [
+      "@/actions/*": [
         "../frontend/src/actions/*"
       ],
       "@/types/*": [
@@ -52,7 +52,7 @@
       ],
        "@/auth/*": [
         "../frontend/src/auth"
-      ]
+      ],
     }
   },
   "include": [
@@ -66,3 +66,4 @@
     "node_modules"
   ]
 }
+
