@@ -65,7 +65,7 @@ export default async function UserNews({ searchParams }: UserNewsProps) {
       {/* NEWS CARDS */}
       {responseData?.map((news) => (
         <GridItem key={news.id} span={{ lg: 4, md: 6, sm: 12 }}>
-          <Card slug={`/news/${news.slug}`}>
+          <Card slug={`/news/${news.slug}`}>c
             <CardHeader
               title={news.title}
               subtitle={news.subtitle}

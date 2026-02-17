@@ -1,16 +1,21 @@
-import { NextAuthRequest } from "next-auth";
-import { auth } from "../auth";
+import { auth } from "../../src/auth";
 import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 
 const protectedRoutes = ["/dashboard", "/profile"];
 const authRoutes = ["/login"];
 
-export default auth((request: NextAuthRequest) => {
-  const { nextUrl } = request;
-  const isLoggedIn = !!request.auth;
+export default auth((req: NextRequest & { auth: any }) => {
+  const { nextUrl } = req;
+  const isLoggedIn = !!req.auth;
 
-  const isAuthRoute = authRoutes.includes(nextUrl.pathname);
-  const isProtectedRoute = protectedRoutes.includes(nextUrl.pathname);
+  const isAuthRoute = authRoutes.some((route) =>
+    nextUrl.pathname.startsWith(route)
+  );
+
+  const isProtectedRoute = protectedRoutes.some((route) =>
+    nextUrl.pathname.startsWith(route)
+  );
 
   if (isLoggedIn && isAuthRoute) {
     return NextResponse.redirect(new URL("/dashboard", nextUrl));
@@ -24,7 +29,5 @@ export default auth((request: NextAuthRequest) => {
 });
 
 export const config = {
-  matcher: [
-    "/((?!api(?!/auth)|_next/static|_next/image|favicon.ico).*)",
-  ],
+  matcher: ["/((?!_next|favicon.ico).*)"],
 };

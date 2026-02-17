@@ -2,6 +2,21 @@
 import "next-auth";
 import "@auth/core/jwt";
 
+declare module "next-auth" {
+  interface Session {
+    user: {
+      id: string;
+      name?: string | null;
+      email?: string | null;
+      image?: string | null;
+    };
+  }
+
+  interface User {
+    id: string;
+  }
+}
+
 // module augmentation - extends existing auth.js types
 declare module "next-auth" {
   // here we extend the default auth.js session interface
