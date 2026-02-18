@@ -1,4 +1,4 @@
-import { auth } from "@/auth/auth";
+import { auth } from "@/auth";
 import { BackButton } from "@/components/back-button/back-button";
 import { NavLink } from "@/components/nav-link/nav-link";
 import { Grid, GridItem } from "@/components/ui/grid/grid";

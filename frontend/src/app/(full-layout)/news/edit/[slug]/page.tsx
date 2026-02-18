@@ -1,4 +1,4 @@
-import { auth } from "@/auth/auth";
+import { auth } from "@/auth";
 import { EditNews } from "@/components/edit-news/edit-news";
 import { NavLink } from "@/components/nav-link/nav-link";
 import { Grid, GridItem } from "@/components/ui/grid/grid";

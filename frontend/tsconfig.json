@@ -22,37 +22,11 @@
         "name": "next"
       }
     ],
+    "baseUrl": ".",
     "paths": {
-      "@/components/*": [
-        "../frontend/src/app/components/*"
-      ],
-      "@/public/*": [
-        "../frontend/public/*"
-      ],
-      "@/images/*": [
-        "../frontend/public/images/*"
-      ],
-      "@/ui/*": [
-        "../frontend/src/app/components/ui/*"
-      ],
-      "@/lib/*": [
-        "../frontend/src/lib/*"
-      ],
-      "@/actions/*": [
-        "../frontend/src/actions/*"
-      ],
-      "@/types/*": [
-        "../frontend/src/types/*"
-      ],
-      "@/responses/*": [
-        "../frontend/src/types/responses/*"
-      ],
-      "@/utils/*": [
-        "../frontend/src/utils/*"
-      ],
-       "@/auth/*": [
-        "../frontend/src/auth.ts"
-      ],
+      "@/*": [
+        "./src/*"
+      ]
     }
   },
   "include": [
@@ -66,4 +40,3 @@
     "node_modules"
   ]
 }
-

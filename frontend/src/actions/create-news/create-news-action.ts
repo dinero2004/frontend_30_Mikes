@@ -1,6 +1,6 @@
 "use server";
 
-import { auth } from "@/auth/auth";
+import { auth } from "@/auth";
 import { fetchApi } from "@/utils/fetch/backend-fetch";
 
 interface CreateNewsData {

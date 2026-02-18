@@ -1,6 +1,6 @@
 import Carousel from "@/components/carousel/carousel";
 import { ImageContainer } from "@/components/ui/image/image";
-import { Button } from "@/ui/button/button";
+import { Button } from "@/components/ui/button/button";
 
 export default function Home() {
   return (

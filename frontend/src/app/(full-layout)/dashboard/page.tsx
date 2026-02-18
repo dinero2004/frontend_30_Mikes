@@ -1,4 +1,4 @@
-import { auth } from "@/auth/";
+import { auth } from "@/auth";
 import { Card } from "@/components/card/card";
 import { CardBody } from "@/components/card/card-body/card-body";
 import { CardHeader } from "@/components/card/card-header/card-header";
