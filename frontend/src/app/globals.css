@@ -3,12 +3,12 @@
 /* =========================
    Custom Fonts
 ========================= */
-@font-face {
+/* @font-face {
   font-family: "Capture_It";
   src: "@/fonts/Capture_It.ttf" format("truetype");
   font-weight: 400;
   font-style: normal;
-}
+} */
 
 body {
   font-family: "Capture_It", sans-serif;
