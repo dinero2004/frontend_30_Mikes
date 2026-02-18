@@ -5,7 +5,7 @@ import { ReactNode } from "react";
 import "./globals.css";
 
 const capture = localFont({
-  src: "../fonts/Capture_It.ttf",
+  src: "../fonts/Capture_it.ttf",
   display: "swap",
 });
 
