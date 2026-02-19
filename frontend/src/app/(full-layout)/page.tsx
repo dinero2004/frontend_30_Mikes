@@ -2,8 +2,6 @@ import Carousel from "@/components/carousel/carousel";
 import { ImageContainer } from "@/components/ui/image/image";
 import { Button } from "@/components/ui/button/button";
 
-import localFont from "next/font/local";
-
 export default function Home() {
   return (
     <>
