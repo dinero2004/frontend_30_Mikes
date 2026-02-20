@@ -2,7 +2,7 @@ import { FooterLinks } from "../footer-links/footer-links";
 
 export const Footer = () => {
   return (
-    <footer className="bg-linear-to-r from-[#2f3439] to-[#4a4f55] border-t border-black/30">
+    <footer className="bg-linear-to-r from-[#2f3439] to-[#4a4f55] border-t border-black/30 flex justify-center">
       <div className="max-w-7xl mx-auto px-8 py-10 space-y-6">
         <FooterLinks />
 

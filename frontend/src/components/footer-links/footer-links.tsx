@@ -9,7 +9,7 @@ const links = [
 
 export const FooterLinks = () => {
   return (
-    <nav className="flex justify-center gap-8 text-sm font-semibold text-[#DFAF44]">
+    <nav className="flex flex-col items-center gap-3 text-sm font-semibold text-[#DFAF44] md:flex-row md:justify-center md:gap-8">
       {links.map(link => (
         <Link
           key={link.label}
